@@ -1,31 +1,28 @@
 package com.company.Lesson_1;
 
-public class Robot {
-    private String id;
+public class Robot implements Actions{
+    private String name;
     private int run;
     private double jump;
 
-    public Robot(String id, int run, double jump) {
-        this.id = id;
+    public Robot(String name, int run, double jump) {
+        this.name = name;
         this.run = run;
         this.jump = jump;
     }
 
-    public boolean running(int i){
-        System.out.println( run > i ? "true" : "false");
-        return run > i;
-    }
-
-    public boolean jumping(int i){
-        System.out.println( jump > i ? "true" : "false");
+    @Override
+    public boolean jumping(int i) {
         return jump > i;
     }
 
-    public int getRun() {
-        return run;
+    @Override
+    public boolean running(int i) {
+        return run > i;
     }
 
-    public double getJump() {
-        return jump;
+    @Override
+    public String toString() {
+        return "Robot " + name;
     }
 }

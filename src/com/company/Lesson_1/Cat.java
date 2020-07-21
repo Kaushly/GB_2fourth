@@ -1,21 +1,28 @@
 package com.company.Lesson_1;
 
-public class Cat {
-    private String nickname;
+public class Cat implements Actions {
+    private String name;
     private int run;
     private double jump;
 
-    public Cat(String nickname, int run, double jump) {
-        this.nickname = nickname;
+    public Cat(String name, int run, double jump) {
+        this.name = name;
         this.run = run;
         this.jump = jump;
     }
 
-    public void running(int i){
-        System.out.println( run > i ? "true" : "false");
+    @Override
+    public boolean jumping(int i) {
+        return jump > i;
     }
 
-    public void jumping(int i){
-        System.out.println( jump > i ? "true" : "false");
+    @Override
+    public boolean running(int i) {
+        return run > i;
+    }
+
+    @Override
+    public String toString() {
+        return "Cat " + name;
     }
 }

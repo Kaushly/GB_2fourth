@@ -1,6 +1,6 @@
 package com.company.Lesson_1;
 
-public class Man {
+public class Man implements Actions {
     private String name;
     private int run;
     private double jump;
@@ -11,11 +11,18 @@ public class Man {
         this.jump = jump;
     }
 
-    public void running(int i){
-        System.out.println( run > i ? "true" : "false");
+    @Override
+    public boolean jumping(int i) {
+        return jump > i;
     }
 
-    public void jumping(int i){
-        System.out.println( jump > i ? "true" : "false");
+    @Override
+    public boolean running(int i) {
+        return run > i;
+    }
+
+    @Override
+    public String toString() {
+        return "Man " + name;
     }
 }
