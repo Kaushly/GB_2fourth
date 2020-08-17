@@ -1,7 +1,7 @@
 package com.company.Lesson_8;
 
 
-public class OneLinkedList {
+public class DoubleLinkedList {
     private Node head;
     private Node tail;
     private int size;
@@ -17,9 +17,9 @@ public class OneLinkedList {
 
         Node prev = tail;
         Node newNode = new Node(val);
-        tail.setNext(newNode);
+        tail.setNext(newNode );
         tail = newNode;
-        tail.setPrev(prev.value);
+        tail.setPrev(prev.getValue());
         size++;
     }
 
@@ -30,8 +30,7 @@ public class OneLinkedList {
 
         if (index == 0) {
             if (head == null) {
-                head = new Node(val);
-                tail = head;
+                add(val);
             } else {
                 head.setValue(val);
             }
@@ -51,7 +50,8 @@ public class OneLinkedList {
             add(val);
         } else {
             current.setValue(val);
-            current.getNext().setPrev(current.value);
+//            current.getNext().setPrev(current);
+            current.getNext().setPrev(current.getValue());
         }
     }
 
@@ -78,13 +78,19 @@ public class OneLinkedList {
     private static class Node {
         private String value;
         private Node next;
+//        private Node prev;
         private String prev;
 
         public Node(String value) {
             this.value = value;
         }
 
-        public Node(String value, Node next, String prev) {
+//        public Node(Node prev, String value, Node next) {
+//            this.value = value;
+//            this.next = next;
+//            this.prev = prev;
+//        }
+        public Node(String prev, String value, Node next) {
             this.value = value;
             this.next = next;
             this.prev = prev;
@@ -106,10 +112,16 @@ public class OneLinkedList {
             this.next = next;
         }
 
+//        public Node getPrev() {
+//            return prev;
+//        }
         public String getPrev() {
             return prev;
         }
 
+//        public void setPrev(Node prev) {
+//            this.prev = prev;
+//        }
         public void setPrev(String prev) {
             this.prev = prev;
         }
@@ -139,6 +151,7 @@ public class OneLinkedList {
         }
 
         private Iterator(Node current) {
+
             this.head = current;
         }
 
